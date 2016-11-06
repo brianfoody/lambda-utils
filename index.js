@@ -1,18 +1,18 @@
-export default convertAWSObjectToFlatObject = function(awsObject) {
+var convertAWSObjectToFlatObject = function(awsObject) {
   return _.reduce(awsObject, function(result, val, key) {
     result[key] = val.S || val.N;
     return result;
   }, {});
 }
 
-export default convertObjectToLowerCaseKeys = function(awsObject) {
+var convertObjectToLowerCaseKeys = function(awsObject) {
   return _.reduce(awsObject, function(result, val, key) {
     result[key.toLowerCase()] = val;
     return result;
   }, {});
 }
 
-export default generateDynamoUpdateExpr = function(awsObject, excludeKeys = []) {
+var generateDynamoUpdateExpr = function(awsObject, excludeKeys = []) {
 
   return _.reduce(awsObject, function(result, val, key, index) {
     if (excludeKeys.indexOf(key) !== -1) {
@@ -30,3 +30,9 @@ export default generateDynamoUpdateExpr = function(awsObject, excludeKeys = []) 
     Count: 1
   });
 }
+
+module.exports = {
+  toFlatObject: convertAWSObjectToFlatObject,
+  toLowerCaseKeys: convertObjectToLowerCaseKeys,
+  toUpdateExpression: generateDynamoUpdateExpr
+};
