@@ -12,10 +12,12 @@ var convertObjectToLowerCaseKeys = function(awsObject) {
   }, {});
 }
 
-var generateDynamoUpdateExpr = function(awsObject, excludeKeys = []) {
+var generateDynamoUpdateExpr = function(awsObject, excludeKeys) {
+
+  var exclude = excludeKeys || []
 
   return _.reduce(awsObject, function(result, val, key, index) {
-    if (excludeKeys.indexOf(key) !== -1) {
+    if (exclude.indexOf(key) !== -1) {
       return result;
     } 
 
