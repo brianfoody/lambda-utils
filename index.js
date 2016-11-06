@@ -5,9 +5,13 @@ export default convertAWSObjectToFlatObject = function(awsObject) {
   }, {});
 }
 
-/*
-  Returns an object with an UpdateExpression and 
-*/
+export default convertObjectToLowerCaseKeys = function(awsObject) {
+  return _.reduce(awsObject, function(result, val, key) {
+    result[key.toLowerCase()] = val;
+    return result;
+  }, {});
+}
+
 export default generateDynamoUpdateExpr = function(awsObject, excludeKeys = []) {
 
   return _.reduce(awsObject, function(result, val, key, index) {

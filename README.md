@@ -23,6 +23,20 @@ output:
   name: "Lambda"
 }
 
+### `convertObjectToLowerCaseKeys`
+
+This converts an object to lowercase keys so we can update services like Amazon CloudSearch
+
+input:
+{
+  Name: "Lambda"
+}
+
+output:
+{
+  name: "Lambda"
+}
+
 ### `generateDynamoUpdateExpr`
 This converts an object into an update expression for updating dynamo db. You can also pass in a list of columns to exclude from the update, for example hash or range keys.
 

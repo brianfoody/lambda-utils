@@ -1,11 +1,14 @@
 {
-  "name": "lambda-utils",
-  "version": "0.0.1",
+  "name": "lambda-node-utility",
+  "version": "0.0.3",
   "description": "A utility class for helping with using lambda and node.js",
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "author": "Brian Foody <brianfoody@gmail.com> (http://github.com/brianfoody)",
-  "license": "ISC"
+  "license": "ISC",
+  "dependencies": {
+    "lodash": "^4.16.6"
+  }
 }
