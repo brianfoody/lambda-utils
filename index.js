@@ -1,3 +1,5 @@
+var _ = require('lodash')
+
 var convertAWSObjectToFlatObject = function(awsObject) {
   return _.reduce(awsObject, function(result, val, key) {
     result[key] = val.S || val.N;
